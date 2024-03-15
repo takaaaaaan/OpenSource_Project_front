@@ -45,10 +45,8 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="flex flex-col gap-4 sm:w-[80px] md:w-[115px] lg:w-[250px] border-r min-h-screen md:p-1 lg:p-4">
+    <div className="flex flex-col gap-4 w-sidebar-sm md:w-sidebar-md lg:w-sidebar-lg border-r min-h-screen md:p-1 lg:p-4">
       <div className="flex flex-col items-center md:justify-center w-full">
-        {" "}
-        {/* md:justify-center to align UserItem vertically */}
         <UserItem />
       </div>
       <div className="grow">

@@ -16,15 +16,47 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // ここでサイドバーとヘッダーの具体的な幅と高さを指定します
+  const headerHeight = "100px"; // ヘッダーの高さ
+
   return (
     <html lang="en">
-      <body className={`${inter.className} flex items-start justify-between`}>
-        <Sidebar />
-        <main className="grid h-full w-full">
-          <Header />
-          <div className="p-3">{children}</div>
-        </main>
+      <body className={`${inter.className}`}>
+        <div
+          className="fixed top-0 left-0 h-full z-10"
+        >
+          <Sidebar />
+        </div>
+        <div className="pl-sidebar-sm md:pl-sidebar-md lg:pl-sidebar-lg flex flex-col w-full">
+          <div
+            className="fixed top-0 left-[sidebarWidth] z-20 h-header"
+            style={{
+              width: `calc(100% - )`,
+            }}
+          >
+            <Header />
+          </div>
+          <main
+            className="flex-grow overflow-y-auto"
+            style={{ paddingTop: headerHeight }}
+          >
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
+}
+{
+  /* <html lang="en">
+<body className={`${inter.className} flex items-start`}>
+  <Sidebar />
+  <div className="flex flex-col w-full">
+    <Header />
+    <main className="flex-grow overflow-hidden p-1 md:p-5 lg:p-4">
+      {children}
+    </main>
+  </div>
+</body>
+</html> */
 }

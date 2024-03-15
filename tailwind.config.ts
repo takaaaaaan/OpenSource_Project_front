@@ -21,6 +21,12 @@ const config = {
       padding: {
         '1/1': '100%', // for 1:1 aspect ratio
       },
+      spacing: {
+        'sidebar-sm': '50px',
+        'sidebar-md': '115px',
+        'sidebar-lg': '250px',
+        'header': '100px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

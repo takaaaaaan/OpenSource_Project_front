@@ -27,7 +27,7 @@ export default function Header() {
   ]);
 
   return (
-    <div className="gird grid-cols-2 flex gap-4 border-b p-4">
+    <div className="gird grid-cols-2 flex gap-4 border-b p-4 ">
       <CommandDemo />
       <div className="flex items-center justify-end">
         <DropdownMenu>

@@ -2,8 +2,8 @@ import AspectRatioCard from "../components/AspectRatioCard";
 
 export default function Home() {
   return (
-    <div className="grid gap-8">
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
+        <AspectRatioCard>Hello World</AspectRatioCard>
         <AspectRatioCard>Hello World</AspectRatioCard>
         <AspectRatioCard>Hello World</AspectRatioCard>
         <AspectRatioCard>Hello World</AspectRatioCard>
@@ -22,6 +22,5 @@ export default function Home() {
         <AspectRatioCard>Hello World</AspectRatioCard>
         <AspectRatioCard>Hello World</AspectRatioCard>
       </div>
-    </div>
   );
 }
