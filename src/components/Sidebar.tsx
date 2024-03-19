@@ -5,15 +5,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import UserItem from "./UserItem";
-import {
-  Bell,
-  Fuel,
-  GlobeLock,
-  Inbox,
-  ScrollText,
-  Settings,
-  User,
-} from "lucide-react";
+import { Bell, Fuel, Inbox, User } from "lucide-react";
 
 export default function Sidebar() {
   const menuList = [
@@ -45,7 +37,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="flex flex-col gap-4 w-sidebar-sm md:w-sidebar-md lg:w-sidebar-lg border-r min-h-screen md:p-1 lg:p-4">
+    <div className="flex flex-col gap-4 w-sidebar-sm md:w-sidebar-md lg:w-sidebar-lg border-r min-h-screen p-1md:p-1 lg:p-4">
       <div className="flex flex-col items-center md:justify-center w-full">
         <UserItem />
       </div>
