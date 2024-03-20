@@ -1,49 +1,52 @@
-// components/ui/AspectRatioCard.tsx
-"use client";
 import React, { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-// interface AspectRatioCardProps {
-//   children: React.ReactNode;
-// }
-
-interface AspectRatioCardProps {
-  children?: React.ReactNode; // `children` プロパティをオプショナルにする
+// ArticleDataのデータ構造を反映した型定義
+interface Article {
+  urlToImage: string;
+  title: string;
+  description: string;
 }
 
-const AspectRatioCard: React.FC<AspectRatioCardProps> = ({ children }) => {
-  const [imgUrls, setImgUrls] = useState<string[]>([]);
+const AspectRatioCard: React.FC = () => {
+  // Article型の配列として状態を管理
+  const [ArticleData, setArticleData] = useState<Article[]>([]);
 
   useEffect(() => {
-    const fetchImageUrls = async () => {
-      const response = await fetch("/api/imageUrl");
+    const fetchArticleData = async () => {
+      const response = await fetch("/api/ArticleData");
       const data = await response.json();
-      setImgUrls(data.imageUrls);
+      setArticleData(data); // レスポンスデータをそのまま状態にセット
     };
 
-    fetchImageUrls();
+    fetchArticleData();
   }, []);
 
   return (
-    <>
-      {imgUrls.map((url, index) => (
-        <div key={index} className="relative pb-1/1">
-          <Card>
-            <AspectRatio>
+    // <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-5 overflow-y-auto h-screen"></div>
+    <div className="grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:gap-5 overflow-y-auto h-screen">
+      {ArticleData.map((article, index) => (
+        <div key={index} className="mb-4">
+          <Card className="w-full">
+            <AspectRatio ratio={20 / 9}>
               <Image
-                src={url}
-                alt="Image"
+                src={article.urlToImage}
+                alt="Article Image"
                 className="rounded-md object-cover"
                 layout="fill"
               />
             </AspectRatio>
-            {children}
+            {/* titleとdescriptionをTailwind CSSでスタイル適用 */}
+            <div className="font-bold text-lg mt-1">{article.title}</div>
+            <div className="text-gray-600 text-sm mt-1">
+              {article.description}
+            </div>
           </Card>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
-// pages/api/imageUrl.ts
-// http://localhost:3000/api/imageUrl
+// pages/api/Content.ts
+// http://localhost:3000/api/Content
 import type { NextApiRequest, NextApiResponse } from 'next';
 import connectToDatabase from '../../src/lib/dbConnect';
 import NewsModel from '../../src/models/articleModel';
@@ -10,11 +10,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     // NewsModelを使用してデータベースから記事を取得し、urlToImageのみを抽出
     const news = await NewsModel.findById('65f9530bae17c3259b0d253e');
-    const imageUrls = news?.articles.map(article => article.urlToImage);
-    res.status(200).json({ imageUrls });
+    const Contents = news?.articles.map(article => article.content);
+    res.status(200).json({ Contents });
   } catch (error) {
-    console.error('Failed to fetch image URLs:', error);
-    res.status(500).json({ message: '画像URLの取得中にエラーが発生しました。' });
+    console.error('Failed to fetch Contents:', error);
+    res.status(500).json({ message: 'Contentsの取得中にエラーが発生しました。' });
   }
 }
 
