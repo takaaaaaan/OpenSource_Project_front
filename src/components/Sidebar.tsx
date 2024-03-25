@@ -1,75 +1,56 @@
-import {
-  Command,
-  CommandGroup,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import UserItem from "./UserItem";
 import { Bell, Fuel, Inbox, User } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Sidebar() {
   const menuList = [
     {
       group: "General",
-      item: [
+      items: [
         {
-          link: "/",
+          link: "/profile",
           icon: <User />,
           text: "Profile",
         },
         {
-          link: "/",
+          link: "/inbox",
           icon: <Inbox />,
           text: "Inbox",
         },
         {
-          link: "/",
+          link: "/billing",
           icon: <Fuel />,
           text: "Billing",
         },
         {
-          link: "/",
+          link: "/notifications",
           icon: <Bell />,
-          text: "Notific",
+          text: "Notifications",
         },
       ],
     },
   ];
 
   return (
-    <div className="flex flex-col gap-4 w-sidebar-sm md:w-sidebar-md lg:w-sidebar-lg border-r min-h-screen p-1md:p-1 lg:p-4">
+    <div className="flex flex-col gap-4 w-sidebar-sm md:w-sidebar-md lg:w-sidebar-lg border-r min-h-screen p-1 md:p-1 lg:p-4">
       <div className="flex flex-col items-center md:justify-center w-full">
         <UserItem />
       </div>
       <div className="grow">
-        <Command style={{ overflow: "visible" }}>
-          <CommandList style={{ overflow: "visible" }}>
-            {menuList.map((menu, key) => (
-              <div
-                key={key}
-                className="flex flex-col items-center sm:items-center md:items-start lg:items-start"
-              >
-                <div className="hidden lg:block">
-                  <CommandGroup heading={menu.group}>{/* ... */}</CommandGroup>
-                </div>
-                {menu.item.map((option, optionKey) => (
-                  <CommandItem
-                    key={optionKey}
-                    className={`flex gap-2 cursor-pointer items-center p-4${
-                      key === 0 ? "mt-5 sm:mt-0" : ""
-                    }`}
-                  >
-                    {option.icon}
-                    {/* smのブレークポイントでテキストを非表示 */}
-                    <span className="hidden sm:hidden md:inline">
-                      {option.text}
-                    </span>
-                  </CommandItem>
-                ))}
-              </div>
+        {menuList.map((menu, menuIndex) => (
+          <div key={menuIndex} className="flex flex-col items-center md:items-start lg:items-start">
+            <div className="hidden lg:block font-bold mb-2">{menu.group}</div>
+            {menu.items.map((item, itemIndex) => (
+              <Link href={item.link} key={itemIndex} passHref>
+                <Button variant="secondary" className="flex gap-2 items-center p-4 w-full text-left hover:bg-gray-200 rounded-md">
+                  {item.icon}
+                  <span>{item.text}</span>
+                </Button>
+              </Link>
             ))}
-          </CommandList>
-        </Command>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,16 +1,27 @@
 "use client";
 import { useState } from "react";
-import { Bell, BellIcon } from "lucide-react";
-import { CommandDemo } from "./Command";
+import { BellIcon, Search } from "lucide-react";
 import { Button } from "./ui/button";
+import { Input } from "@/components/ui/input";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Navigation } from "./Navigation";
+
+export function InputWithButton() {
+  return (
+    <div className="flex w-full shadow-md items-center space-x-2">
+      <Input type="email" placeholder="Search" />
+      <Button type="submit" className="flex items-center justify-end">
+        <Search />
+      </Button>
+    </div>
+  );
+}
 
 export default function Header() {
   const [notifications, setNotifications] = useState<any>([
@@ -28,7 +39,9 @@ export default function Header() {
 
   return (
     <div className="gird grid-cols-2 flex gap-4 border-b p-4 ">
-      <CommandDemo />
+      {/* <CommandDemo /> */}
+      <InputWithButton />
+      <Navigation />
       <div className="flex items-center justify-end">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
