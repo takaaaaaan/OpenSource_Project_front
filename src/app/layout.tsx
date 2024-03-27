@@ -1,3 +1,4 @@
+// \src\app\layout.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -24,9 +25,9 @@ export default function RootLayout({
       if (window.innerWidth >= 1024) {
         setSidebarWidth("250px"); // lgサイズ
       } else if (window.innerWidth >= 768) {
-        setSidebarWidth("115px"); // mdサイズ
+        setSidebarWidth("58px"); // mdサイズ
       } else {
-        setSidebarWidth("50px"); // smサイズ
+        setSidebarWidth("0px"); // smサイズ
       }
     }
 
@@ -39,10 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`h-full overflow-hidden ${inter.className}`}>
-        <div className="fixed top-0 left-0 h-full z-10">
+        <div className="hidden sm:block fixed top-0 left-0 h-full z-10">
           <Sidebar />
         </div>
-        <div className="pl-sidebar-sm md:pl-sidebar-md lg:pl-sidebar-lg flex flex-col w-full">
+        <div className="pl-[0px]  sm:pl-[58px] md:pl-[58px] lg:pl-sidebar-lg flex flex-col w-full">
           <div
             className="fixed top-0 z-20"
             style={{
@@ -54,7 +55,7 @@ export default function RootLayout({
           <main className="flex-grow overflow-auto pt-header p-4">
             {children}
           </main>
-          <footer>
+          <footer className="block sm:hidden">
             <Footer />
           </footer>
         </div>

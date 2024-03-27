@@ -1,17 +1,41 @@
 {
-  "articles": [
-    {
-      "source": {
-        "id": null,
-        "name": "Phys.Org"
+  "document": {
+    "author": null,
+    "content": null,
+    "_id": "6602d2001c5f315fd5c7a8bf",
+    "articles": [
+      {
+        "source": {
+          "id": null,
+          "name": "YouTube"
+        },
+        "author": null,
+        "title": "애플도 포기한 걸 3년 만에…베일 벗은 '샤오미 전기차' / SBS 8뉴스 - SBS 뉴스",
+        "description": "〈앵커〉싼 가격에 비해 좋은 품질로 유명한 중국 가전업체 샤오미가 만든 첫 전기차가 공개됐습니다. 애플이 10년 동안 만들어오다 포기한 전기차를 샤오미는 시장진출을 선언한 지 3년 만에 내놓았습니다.베이징 권란 특파원이 취재했습니다.〈기자〉베이징 번화가의 샤오미 매장, 가전제품, ...",
+        "url": "https://www.youtube.com/watch?v=jQlSD00vI_I",
+        "urlToImage": "https://i.ytimg.com/vi/jQlSD00vI_I/maxresdefault.jpg",
+        "publishedAt": "2024-03-25T11:47:21Z",
+        "content": null
       },
-      "author": "Devin Griffiths",
-      "title": "How 'Dune' became a beacon for the fledgling environmental movement, and a rallying cry for the new science of ecology",
-      "description": "\"Dune,\" widely considered one of the best sci-fi novels of all time, continues to influence how writers, artists and inventors envision the future.",
-      "url": "https://phys.org/news/2024-03-dune-beacon-fledgling-environmental-movement.html",
-      "urlToImage": "https://scx2.b-cdn.net/gfx/news/hires/2018/sanddunes.jpg",
-      "publishedAt": "2024-03-17T09:30:01Z",
-      "content": "This article has been reviewed according to Science X's \r\neditorial process\r\nand policies.\r\nEditors have highlighted\r\nthe following attributes while ensuring the content's credibility:\r\nfact-checked\r… [+8070 chars]"
-    }
-  ]
+      {
+        "source": {
+          "id": null,
+          "name": "YouTube"
+        },
+        "author": null,
+        "title": "\"싸게 빨리\" 쿠팡-알리 폭증하자…'국내 대형마트 1위' 결국 / SBS 8뉴스 - SBS 뉴스",
+        "description": "〈앵커〉국내 대형 마트 1위 업체인 이마트가 창사 이래 처음으로 전 직원을 상대로 희망퇴직을 받습니다. 빠른 배송으로 인기가 많은 쿠팡에 이어 저렴한 가격을 앞세운 중국 쇼핑몰에도 밀리면서 실적 부진을 겪고 있기 때문입니다.박예린 기자가 취재했습니다.〈기자〉최대 100만 원 쿠폰을...",
+        "url": "https://www.youtube.com/watch?v=kg0usqS3PMc",
+        "urlToImage": "https://i.ytimg.com/vi/kg0usqS3PMc/maxresdefault.jpg",
+        "publishedAt": "2024-03-25T11:43:36Z",
+        "content": null
+      }
+    ]
+  }
 }
+title
+description
+url
+urlToImage
+publishedAt
+content

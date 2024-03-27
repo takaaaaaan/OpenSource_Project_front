@@ -18,7 +18,8 @@ const AspectRatioCard: React.FC = () => {
     const fetchArticleData = async () => {
       const response = await fetch("/api/ArticleData");
       const data = await response.json();
-      setArticleData(data); // レスポンスデータをそのまま状態にセット
+      console.log(data);
+      setArticleData(data.articles); // レスポンスデータをそのまま状態にセット
     };
 
     fetchArticleData();
@@ -26,7 +27,7 @@ const AspectRatioCard: React.FC = () => {
 
   return (
     // <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-5 overflow-y-auto h-screen"></div>
-    <div className="grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:gap-5 overflow-y-auto h-screen">
+    <div className="grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
       {ArticleData.map((article, index) => (
         <div key={index} className="mb-4">
           <Card className="w-full">
