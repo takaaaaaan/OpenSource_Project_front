@@ -8,16 +8,16 @@ interface IArticle {
     title: string;
     description: string;
     url: string;
-  urlToImage: string;
-  publishedAt: Date;
-  content: string | null;
-  }
-  
+    urlToImage: string;
+    publishedAt: Date;
+    content: string | null;
+}
+
   // documentの型を定義（IArticleの配列を持つarticlesプロパティを含む）
-  interface IDocument {
+interface IDocument {
     _id: ObjectId;
     articles: IArticle[];
-  }
+}
 
 
 // GETメソッドの処理を担当する関数
