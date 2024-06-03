@@ -1,0 +1,177 @@
+import ABL from './금융아이콘_SVG_ABL.svg'
+import AIA from './금융아이콘_SVG_AIA.svg'
+import AIG from './금융아이콘_SVG_AIG.svg'
+import AXA from './금융아이콘_SVG_AXA.svg'
+import BC from './금융아이콘_SVG_BC카드.svg'
+import BNK from './금융아이콘_SVG_BNK.svg'
+import BNP from './금융아이콘_SVG_BNP파리바.svg'
+import BOA from './금융아이콘_SVG_BOA은행.svg'
+import CHUBB from './금융아이콘_SVG_CHUBB.svg'
+import DB from './금융아이콘_SVG_DB.svg'
+import DGB from './금융아이콘_SVG_DGB.svg'
+import HSBC from './금융아이콘_SVG_HSBC.svg'
+import IBK from './금융아이콘_SVG_IBK.svg'
+import JP from './금융아이콘_SVG_JP모건체이스.svg'
+import KB from './금융아이콘_SVG_KB.svg'
+import KDB from './금융아이콘_SVG_KDB.svg'
+import KTB from './금융아이콘_SVG_KTB투자증권.svg'
+import MG from './금융아이콘_SVG_MG새마을금고.svg'
+import RGA from './금융아이콘_SVG_RGA.svg'
+import SBI from './금융아이콘_SVG_SBI.svg'
+import SC제일 from './금융아이콘_SVG_SC제일.svg'
+import Sh수협 from './금융아이콘_SVG_Sh수협.svg'
+import SK from './금융아이콘_SVG_SK.svg'
+import 광주 from './금융아이콘_SVG_광주.svg'
+import 교보 from './금융아이콘_SVG_교보.svg'
+import 교보라이프플래닛 from './금융아이콘_SVG_교보라이프플래닛.svg'
+import 농협 from './금융아이콘_SVG_농협.svg'
+import 대신증권 from './금융아이콘_SVG_대신증권.svg'
+import 도이치뱅크 from './금융아이콘_SVG_도이치뱅크.svg'
+import 라이나생명 from './금융아이콘_SVG_라이나생명.svg'
+import 롯데 from './금융아이콘_SVG_롯데.svg'
+import 메리츠 from './금융아이콘_SVG_메리츠.svg'
+import 메트라이프 from './금융아이콘_SVG_메트라이프.svg'
+import 미래에셋 from './금융아이콘_SVG_미래에셋.svg'
+import 부국증권 from './금융아이콘_SVG_부국증권.svg'
+import 산림조합 from './금융아이콘_SVG_산림조합.svg'
+import 삼성 from './금융아이콘_SVG_삼성.svg'
+import 동양생명 from './금융아이콘_SVG_수호천사동양생명.svg'
+import 신영 from './금융아이콘_SVG_신영증권.svg'
+import 신한 from './금융아이콘_SVG_신한.svg'
+import 신한카드 from './금융아이콘_SVG_신한카드.svg'
+import 신협 from './금융아이콘_SVG_신협.svg'
+import 씨티 from './금융아이콘_SVG_씨티.svg'
+import 우리 from './금융아이콘_SVG_우리.svg'
+import 우체국 from './금융아이콘_SVG_우체국.svg'
+import 유안타 from './금융아이콘_SVG_유안타.svg'
+import 유진 from './금융아이콘_SVG_유진.svg'
+import 이베스트 from './금융아이콘_SVG_이베스트.svg'
+import 저축은행 from './금융아이콘_SVG_저축은행.svg'
+import 중국건설은행 from './금융아이콘_SVG_중국건설은행.svg'
+import 중국공상은행 from './금융아이콘_SVG_중국공상은행.svg'
+import 중국은행 from './금융아이콘_SVG_중국은행.svg'
+import 카카오뱅크 from './금융아이콘_SVG_카카오뱅크.svg'
+import 케이뱅크 from './금융아이콘_SVG_케이뱅크.svg'
+import 코리아리재 from './금융아이콘_SVG_코리아리재.svg'
+import 키움 from './금융아이콘_SVG_키움.svg'
+import 토스 from './금융아이콘_SVG_토스.svg'
+import 푸르덴셜 from './금융아이콘_SVG_푸르덴셜.svg'
+import 푸본현대생명 from './금융아이콘_SVG_푸본현대생명.svg'
+import 하나 from './금융아이콘_SVG_하나.svg'
+import 한국투자 from './금융아이콘_SVG_한국투자.svg'
+import 한국포스 from './금융아이콘_SVG_한국포스.svg'
+import 한화 from './금융아이콘_SVG_한화.svg'
+import 현대차증권 from './금융아이콘_SVG_현대차증권.svg'
+import 현대카드 from './금융아이콘_SVG_현대카드.svg'
+import 현대해상 from './금융아이콘_SVG_현대해상.svg'
+import 흥국 from './금융아이콘_SVG_흥국.svg'
+
+const Banks = [
+  {name: 'ABL', svg: ABL},
+  {name: 'AIA', svg: AIA},
+  {name: 'AIG', svg: AIG},
+  {name: 'AXA', svg: AXA},
+  {name: 'BC카드', svg: BC},
+  {name: 'BNK', svg: BNK},
+  {name: 'BNP파리바', svg: BNP},
+  {name: 'BOA은행', svg: BOA},
+  {name: 'CHUBB', svg: CHUBB},
+  {name: 'DB', svg: DB},
+  {name: 'DGB', svg: DGB},
+  {name: 'HSBC', svg: HSBC},
+  {name: 'IBK', svg: IBK},
+  {name: 'JP모건체이스', svg: JP},
+  {name: 'KB', svg: KB},
+  {name: 'KDB', svg: KDB},
+  {name: 'KTB투자증권', svg: KTB},
+  {name: 'MG새마을금고', svg: MG},
+  {name: 'RGA', svg: RGA},
+  {name: 'SBI', svg: SBI},
+  {name: 'SC제일', svg: SC제일},
+  {name: 'Sh수협', svg: Sh수협},
+  {name: 'SK', svg: SK},
+  {name: '광주', svg: 광주},
+  {name: '교보', svg: 교보},
+  {name: '교보라이프플래닛', svg: 교보라이프플래닛},
+  {name: '농협', svg: 농협},
+  {name: '대신증권', svg: 대신증권},
+  {name: '도이치뱅크', svg: 도이치뱅크},
+  {name: '라이나생명', svg: 라이나생명},
+  {name: '롯데', svg: 롯데},
+  {name: '메리츠', svg: 메리츠},
+  {name: '메트라이프', svg: 메트라이프},
+  {name: '미래에셋', svg: 미래에셋},
+  {name: '부국증권', svg: 부국증권},
+  {name: '산림조합', svg: 산림조합},
+  {name: '삼성', svg: 삼성},
+  {name: '동양생명', svg: 동양생명},
+  {name: '신영', svg: 신영},
+  {name: '신한', svg: 신한},
+  {name: '신한카드', svg: 신한카드},
+  {name: '신협', svg: 신협},
+  {name: '씨티', svg: 씨티},
+  {name: '우리', svg: 우리},
+  {name: '우체국', svg: 우체국},
+  {name: '유안타', svg: 유안타},
+  {name: '유진', svg: 유진},
+  {name: '이베스트', svg: 이베스트},
+  {name: '저축은행', svg: 저축은행},
+  {name: '중국건설은행', svg: 중국건설은행},
+  {name: '중국공상은행', svg: 중국공상은행},
+  {name: '중국은행', svg: 중국은행},
+  {name: '카카오뱅크', svg: 카카오뱅크},
+  {name: '케이뱅크', svg: 케이뱅크},
+  {name: '코리아리재', svg: 코리아리재},
+  {name: '키움', svg: 키움},
+  {name: '토스', svg: 토스},
+  {name: '푸르덴셜', svg: 푸르덴셜},
+  {name: '푸본현대생명', svg: 푸본현대생명},
+  {name: '하나', svg: 하나},
+  {name: '한국투자', svg: 한국투자},
+  {name: '한국포스', svg: 한국포스},
+  {name: '한화', svg: 한화},
+  {name: '현대차증권', svg: 현대차증권},
+  {name: '현대카드', svg: 현대카드},
+  {name: '현대해상', svg: 현대해상},
+  {name: '흥국', svg: 흥국},
+]
+
+const banks = [
+  {name: 'KB국민은행', svg: KB},
+  {name: 'SC제일', svg: SC제일},
+  {name: 'Sh수협', svg: Sh수협},
+  {name: 'SK', svg: SK},
+  {name: 'MG새마을금고', svg: MG},
+  {name: '광주', svg: 광주},
+  {name: '교보', svg: 교보},
+  {name: '교보라이프플래닛', svg: 교보라이프플래닛},
+  {name: '농협', svg: 농협},
+  {name: '대신증권', svg: 대신증권},
+  {name: '도이치뱅크', svg: 도이치뱅크},
+  {name: '라이나생명', svg: 라이나생명},
+  {name: '롯데', svg: 롯데},
+  {name: '메리츠', svg: 메리츠},
+  {name: '메트라이프', svg: 메트라이프},
+  {name: '미래에셋', svg: 미래에셋},
+  {name: '부국증권', svg: 부국증권},
+  {name: '산림조합', svg: 산림조합},
+  {name: '삼성', svg: 삼성},
+  {name: '동양생명', svg: 동양생명},
+  {name: '신영', svg: 신영},
+  {name: '신한', svg: 신한},
+  {name: '신한카드', svg: 신한카드},
+  {name: '신협', svg: 신협},
+  {name: '씨티', svg: 씨티},
+  {name: '우리', svg: 우리},
+  {name: '우체국', svg: 우체국},
+  {name: '카카오뱅크', svg: 카카오뱅크},
+  {name: '케이뱅크', svg: 케이뱅크},
+  {name: '키움', svg: 키움},
+  {name: '토스', svg: 토스},
+  {name: '하나', svg: 하나},
+  {name: '한국투자', svg: 한국투자},
+  {name: '한화', svg: 한화},
+  {name: '현대카드', svg: 현대카드},
+]
+
+export { Banks, banks }
