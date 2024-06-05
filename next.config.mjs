@@ -1,8 +1,17 @@
-//next.config.mjs
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["arabic.cnn.com","cnnespanol.cnn.com","cnn-arabic-images.cnn.io"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
   },
 };
 

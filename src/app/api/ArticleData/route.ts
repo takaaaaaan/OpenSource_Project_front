@@ -1,27 +1,19 @@
-// src\app\api\ArticleData\route.ts
-import connectToDatabase from '../../../lib/dbConnect';
-import NewsModel from '../../../models/articleModel';
+import { NextRequest, NextResponse } from 'next/server';
+import dbConnect from '@/database/dbConnect';
+import NewsArticle from '@/database/models/articleModel';
 
-// GETメソッドの処理を担当する関数
-export async function GET(req:Request, res: Response) {
-    try {
-        await connectToDatabase();
-        // 特定のIDを持つドキュメントを検索
-        const document = await NewsModel.findById('65f9530bae17c3259b0d253e');
-        // console.log(document);
-        if (!document) {
-            return Response.json({ message: 'ドキュメントが見つかりませんでした。'  }, { status: 200 })
-        }
+/**
+ * @description news_articles コレクションの全データを取得
+ */
+export async function GET(req: NextRequest) {
+  await dbConnect();
+  console.log('Database connected');
 
-        // 'articles'フィールドから必要な情報を抽出
-        const articles = document.articles.map(articles => ({
-            urlToImage: articles.urlToImage,
-            title: articles.title,
-            description: articles.description
-        }));
-        return Response.json({articles})
-    } catch (error) {
-        console.error('Failed to fetch articles:', error);
-        return Response.json({ message: '記事の取得中にエラーが発生しました。'   }, { status: 200 })
-    }
+  try {
+    const articles = await NewsArticle.find({});
+    return NextResponse.json(articles, { status: 200 });
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return NextResponse.json({ message: 'Error fetching articles' }, { status: 500 });
+  }
 }

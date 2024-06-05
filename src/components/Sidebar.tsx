@@ -9,7 +9,7 @@ export default function Sidebar() {
       group: "General",
       items: [
         {
-          link: "/",
+          link: "/LatestNews",
           icon: <Bell />,
           text: "Latest News & Events",
         },

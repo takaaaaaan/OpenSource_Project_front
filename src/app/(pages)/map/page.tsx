@@ -7,7 +7,7 @@ const MapPage: NextPage = () => {
   return (
     <div className="container mx-auto px-4">
       <h1 className="text-xl font-bold">MapPage</h1>
-      <MapComponent />
+      {/* <MapComponent /> */}
     </div>
   );
 };

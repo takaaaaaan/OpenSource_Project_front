@@ -13,8 +13,6 @@ export default function Home() {
       <div className="flex flex-row items-start">
         <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
       </div>
-      Latest News & Events
-      <AspectRatioCard />
     </div>
   );
 }
