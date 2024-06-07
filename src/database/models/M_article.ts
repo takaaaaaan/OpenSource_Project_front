@@ -13,12 +13,12 @@ const NewsArticlesSchema = new mongoose.Schema(
   }
 );
 
-const NewsArticle_Economy = mongoose.models.NewsArticle_Economy || mongoose.model('NewsArticle_Economy', NewsArticlesSchema, '경제');
+const NewsArticle_Economy = mongoose.models.NewsArticle_Economy || mongoose.model('NewsArticle_Economy', NewsArticlesSchema, 'Economy');
 const NewsArticle_IT = mongoose.models.NewsArticle_IT || mongoose.model('NewsArticle_IT', NewsArticlesSchema, 'IT');
-const NewsArticle_Other = mongoose.models.NewsArticle_Other || mongoose.model('NewsArticle_Other', NewsArticlesSchema, '기타');
-const NewsArticle_Social = mongoose.models.NewsArticle_Social || mongoose.model('NewsArticle_Social', NewsArticlesSchema, '사회');
-const NewsArticle_Life = mongoose.models.NewsArticle_Life || mongoose.model('NewsArticle_Life', NewsArticlesSchema, '생활');
-const NewsArticle_Worlds = mongoose.models.NewsArticle_Worlds || mongoose.model('NewsArticle_Worlds', NewsArticlesSchema, '세계');
-const NewsArticle_Government = mongoose.models.NewsArticle_Government || mongoose.model('NewsArticle_Government', NewsArticlesSchema, '정치');
+const NewsArticle_Other = mongoose.models.NewsArticle_Other || mongoose.model('NewsArticle_Other', NewsArticlesSchema, 'Others');
+const NewsArticle_Society = mongoose.models.NewsArticle_Society || mongoose.model('NewsArticle_Society', NewsArticlesSchema, 'Society');
+const NewsArticle_Life = mongoose.models.NewsArticle_Life || mongoose.model('NewsArticle_Life', NewsArticlesSchema, 'Lifestyle');
+const NewsArticle_World = mongoose.models.NewsArticle_World || mongoose.model('NewsArticle_World', NewsArticlesSchema, 'World');
+const NewsArticle_Politics = mongoose.models.NewsArticle_Politics || mongoose.model('NewsArticle_Politics', NewsArticlesSchema, 'Politics');
 
-export { NewsArticle_Economy, NewsArticle_IT, NewsArticle_Other, NewsArticle_Social, NewsArticle_Life, NewsArticle_Worlds, NewsArticle_Government };
+export { NewsArticle_Economy, NewsArticle_IT, NewsArticle_Other, NewsArticle_Society, NewsArticle_Life, NewsArticle_World, NewsArticle_Politics };

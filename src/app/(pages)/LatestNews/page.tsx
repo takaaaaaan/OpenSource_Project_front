@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from "react";
 import CategorizeNavigation from "@/components/CategorizeNavigation";
 import CategoryRatioCard from "@/components/NewsCard/CategoryRatioCard";
-// import LottieIcon from "@/components/lottieicon";
+import CategoryRatioCard02 from "@/components/NewsCard/CategoryRatioCard02";
+import Lottie from "react-lottie-player";
+import lottieJson from "../../../../public/lottie/loading.json";
 
-// ArticleDataのデータ構造を反映した型定義
 interface Article {
   urlToImage: string;
   title: string;
@@ -23,9 +24,11 @@ const checkImageUrl = (url: string) => {
 export default function Home() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchArticleData = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           `/api/CategoryNewsAricle${selectedCategory ? `?category=${selectedCategory}` : ""}`
@@ -47,6 +50,8 @@ export default function Home() {
         }
       } catch (error) {
         console.error("Failed to fetch articles: ", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -65,8 +70,14 @@ export default function Home() {
         <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
       </div>
       Latest News & Events
-      {/* <LottieIcon /> */}
-      <CategoryRatioCard articles={articles} />
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <Lottie loop animationData={lottieJson} play style={{ width: 200, height: 200 }} />
+        </div>
+      ) : (
+        // <CategoryRatioCard articles={articles} />
+        <CategoryRatioCard02 articles={articles} />
+      )}
     </div>
   );
 }

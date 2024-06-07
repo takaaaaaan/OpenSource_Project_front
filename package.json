@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
     "@lottiefiles/react-lottie-player": "^3.5.4",
+    "@netlify/classnames-template-literals": "^1.0.3",
     "@nivo/bar": "^0.85.1",
     "@nivo/boxplot": "^0.85.1",
     "@nivo/core": "^0.85.1",

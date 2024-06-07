@@ -66,7 +66,17 @@ const badgePositive = ctl(`
   bg-green-600
 `);
 
-const CategoryRatioCard: React.FC<AspectRatioCardProps> = ({ articles }) => {
+const notificationDot = ctl(`
+  absolute
+  top-0
+  right-0
+  w-8
+  h-8
+  bg-green-500
+  rounded-full
+`);
+
+const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
   return (
     <div className="grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
       {articles.map((article, index) => {
@@ -76,7 +86,7 @@ const CategoryRatioCard: React.FC<AspectRatioCardProps> = ({ articles }) => {
         return (
           <AlertDialog key={index}>
             <AlertDialogTrigger asChild>
-              <div className="border border-gray-300 rounded-md">
+              <div className="relative border border-gray-300 rounded-md">
                 <div className="relative w-full" style={{ paddingBottom: "45%" }}>
                   <Image
                     src={article.urlToImage ?? ""}
@@ -85,6 +95,7 @@ const CategoryRatioCard: React.FC<AspectRatioCardProps> = ({ articles }) => {
                     layout="fill"
                     unoptimized
                   />
+                  <div className={notificationDot}></div>
                 </div>
                 <div className="p-2 h-full">
                   <div
@@ -96,11 +107,6 @@ const CategoryRatioCard: React.FC<AspectRatioCardProps> = ({ articles }) => {
                     }}
                   >
                     {article.title}
-                  </div>
-                  <div className={`mt-2 ${sentimentClass}`}>
-                    {sentiment === 'negative' && 'negative'}
-                    {sentiment === 'neutral' && 'normal'}
-                    {sentiment === 'positive' && 'positive'}
                   </div>
                 </div>
               </div>
@@ -144,4 +150,4 @@ const CategoryRatioCard: React.FC<AspectRatioCardProps> = ({ articles }) => {
   );
 };
 
-export default CategoryRatioCard;
+export default CategoryRatioCard02;

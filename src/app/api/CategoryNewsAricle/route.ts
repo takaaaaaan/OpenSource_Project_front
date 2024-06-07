@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/database/dbConnect';
-import { NewsArticle_Economy, NewsArticle_IT, NewsArticle_Other, NewsArticle_Social, NewsArticle_Life, NewsArticle_Worlds, NewsArticle_Government } from '@/database/models/M_article';
+import { NewsArticle_Economy, NewsArticle_IT, NewsArticle_Other, NewsArticle_Society, NewsArticle_Life, NewsArticle_World, NewsArticle_Politics } from '@/database/models/M_article';
 import NewsArticle from '@/database/models/articleModel';
 
 /**
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
   let model;
 
   if (!category) {
-    model = NewsArticle;
+    model = NewsArticle_Economy;
     console.log('Default NewsArticle');
   } else {
     switch (category) {
@@ -28,11 +28,11 @@ export async function GET(req: NextRequest) {
         console.log('Economy');
         break;
       case '정치':
-        model = NewsArticle_Government;
+        model = NewsArticle_Politics;
         console.log('Government');
         break;
       case '사회':
-        model = NewsArticle_Social;
+        model = NewsArticle_Society;
         console.log('Social');
         break;
       case '생활':
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
         console.log('Life');
         break;
       case '세계':
-        model = NewsArticle_Worlds;
+        model = NewsArticle_World;
         console.log('Worlds');
         break;
       case 'IT':
