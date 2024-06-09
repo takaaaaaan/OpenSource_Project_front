@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import {
   AlertDialog,
@@ -15,73 +14,19 @@ import {
 } from "@/components/ui/alert-dialog";
 import { X } from "lucide-react";
 import ctl from "@netlify/classnames-template-literals";
-
-interface Article {
-  urlToImage?: string | null;
-  title: string;
-  content: string;
-  publishedAt?: string;
-  sentiment?: 'negative' | 'neutral' | 'positive';  // 仮の感情分析結果
-}
-
-interface AspectRatioCardProps {
-  articles: Article[];
-}
-
-const getSentimentBadgeStyle = (sentiment: 'negative' | 'neutral' | 'positive') => {
-  return ctl(`
-    badge
-    ${sentiment === 'negative' && 'badge-negative'}
-    ${sentiment === 'neutral' && 'badge-neutral'}
-    ${sentiment === 'positive' && 'badge-positive'}
-  `);
-};
-
-const badge = ctl(`
-  inline-block
-  p-1
-  text-xs
-  font-bold
-  text-center
-  whitespace-nowrap
-  align-baseline
-  rounded-md
-`);
-
-const badgeNegative = ctl(`
-  ${badge}
-  text-white
-  bg-red-600
-`);
-
-const badgeNeutral = ctl(`
-  ${badge}
-  text-white
-  bg-gray-600
-`);
-
-const badgePositive = ctl(`
-  ${badge}
-  text-white
-  bg-green-600
-`);
-
-const notificationDot = ctl(`
-  absolute
-  top-0
-  right-0
-  w-8
-  h-8
-  bg-green-500
-  rounded-full
-`);
+import { AspectRatioCardProps, Article } from "../../../types/Article";
 
 const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
   return (
-    <div className="grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
+    <div className="pt-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
       {articles.map((article, index) => {
-        const sentiment = article.sentiment ?? 'neutral'; // デフォルトでノーマルを設定
-        const sentimentClass = sentiment === 'negative' ? badgeNegative : sentiment === 'neutral' ? badgeNeutral : badgePositive;
+        const sentiment = article.sentiment ?? "neutral";
+        const sentimentClass =
+          sentiment === "negative"
+            ? badgeNegative
+            : sentiment === "neutral"
+              ? badgeNeutral
+              : badgePositive;
 
         return (
           <AlertDialog key={index}>
@@ -126,9 +71,9 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
                 <div>{article.publishedAt}</div>
                 <div className="flex justify-end mt-2">
                   <div className={sentimentClass}>
-                    {sentiment === 'negative' && 'negative'}
-                    {sentiment === 'neutral' && 'normal'}
-                    {sentiment === 'positive' && 'positive'}
+                    {sentiment === "negative" && "negative"}
+                    {sentiment === "neutral" && "normal"}
+                    {sentiment === "positive" && "positive"}
                   </div>
                 </div>
               </AlertDialogHeader>
@@ -151,3 +96,44 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
 };
 
 export default CategoryRatioCard02;
+
+const badge = ctl(`
+  inline-block
+  p-1
+  text-xs
+  font-bold
+  text-center
+  whitespace-nowrap
+  align-baseline
+  rounded-md
+`);
+
+const badgeNegative = ctl(`
+  ${badge}
+  text-white
+  bg-red-600
+`);
+
+const badgeNeutral = ctl(`
+  ${badge}
+  text-white
+  bg-gray-600
+`);
+
+const badgePositive = ctl(`
+  ${badge}
+  text-white
+  bg-green-600
+`);
+
+const notificationDot = ctl(`
+  absolute
+  -top-4
+  -right-2
+  h-6
+  w-6
+  bg-green-500
+  rounded-full
+  my-1
+`);
+

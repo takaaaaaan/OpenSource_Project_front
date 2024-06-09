@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CategorizeNavigation from "@/components/CategorizeNavigation";
-import CategoryRatioCard from "@/components/NewsCard/CategoryRatioCard";
 import CategoryRatioCard02 from "@/components/NewsCard/CategoryRatioCard02";
 import Lottie from "react-lottie-player";
 import lottieJson from "../../../../public/lottie/loading.json";
@@ -69,13 +68,11 @@ export default function Home() {
       <div className="flex flex-row items-start">
         <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
       </div>
-      Latest News & Events
       {loading ? (
         <div className="flex justify-center items-center h-screen">
           <Lottie loop animationData={lottieJson} play style={{ width: 200, height: 200 }} />
         </div>
       ) : (
-        // <CategoryRatioCard articles={articles} />
         <CategoryRatioCard02 articles={articles} />
       )}
     </div>

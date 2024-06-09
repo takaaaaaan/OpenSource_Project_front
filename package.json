@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@hookform/resolvers": "^3.4.2",
     "@lottiefiles/react-lottie-player": "^3.5.4",
     "@netlify/classnames-template-literals": "^1.0.3",
@@ -32,6 +33,7 @@
     "date-fns": "^3.4.0",
     "dotenv": "^16.4.5",
     "firebase": "^10.8.1",
+    "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.356.0",
     "mongodb": "^6.5.0",
@@ -41,6 +43,7 @@
     "react-day-picker": "^8.10.0",
     "react-dom": "^18",
     "react-hook-form": "^7.51.5",
+    "react-locomotive-scroll": "^0.2.2",
     "react-lottie": "^1.2.4",
     "react-lottie-player": "^2.0.0",
     "tailwind-merge": "^2.2.1",

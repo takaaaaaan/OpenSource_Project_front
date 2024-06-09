@@ -21,7 +21,6 @@ export default function RootLayout({
 
   useEffect(() => {
     function handleResize() {
-      // ウィンドウ幅に基づいてサイドバーの幅を設定
       if (window.innerWidth >= 1024) {
         setSidebarWidth("250px"); // lgサイズ
       } else if (window.innerWidth >= 768) {
@@ -47,7 +46,7 @@ export default function RootLayout({
           <div
             className="fixed top-0 z-20"
             style={{
-              width: `calc(100% - ${sidebarWidth})`, // サイドバーの幅を動的に計算
+              width: `calc(100% - ${sidebarWidth})`,
             }}
           >
             <Header />

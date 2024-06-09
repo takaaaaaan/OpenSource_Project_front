@@ -1,32 +1,47 @@
 import UserItem from "./UserItem";
-import { Bell, Fuel, Inbox, User } from "lucide-react";
+import { Bell, FlagTriangleRight, Fuel, Inbox, Map, Newspaper, Pin, User, Settings } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Sidebar() {
   const menuList = [
     {
-      group: "General",
+      group: "Main",
       items: [
         {
           link: "/LatestNews",
-          icon: <Bell />,
+          icon: <Newspaper />,
           text: "Latest News & Events",
         },
         {
           link: "/ranking",
-          icon: <User />,
+          icon: <FlagTriangleRight />,
           text: "TOP100",
         },
         {
           link: "/map",
-          icon: <Inbox />,
+          icon: <Map />,
           text: "NewMap",
         },
         {
           link: "/saved",
-          icon: <Fuel />,
+          icon: <Pin />,
           text: "Saved",
+        },
+      ],
+    },
+    {
+      group: "Settings & Account",
+      items: [
+        {
+          link: "/settings",
+          icon: <Settings />,
+          text: "Settings",
+        },
+        {
+          link: "/account",
+          icon: <User />,
+          text: "Account",
         },
       ],
     },
@@ -39,8 +54,8 @@ export default function Sidebar() {
       </div>
       <div className="grow">
         {menuList.map((menu, menuIndex) => (
-          <div key={menuIndex} className="flex flex-col items-center  lg:items-start w-full">
-            <div className="hidden lg:block font-bold mb-2 w-full">{menu.group}</div>
+          <div key={menuIndex} className="flex flex-col items-center lg:items-start w-full">
+            <div className="hidden pt-2 lg:block font-bold mb-2 w-full">{menu.group}</div>
             {menu.items.map((item, itemIndex) => (
               <Link href={item.link} key={itemIndex} passHref className="w-full">
                 <Button
@@ -48,7 +63,7 @@ export default function Sidebar() {
                   className="flex gap-2 justify-start items-center p-4 w-full text-left hover:bg-gray-200 rounded-md"
                 >
                   {item.icon}
-                  <span className="hidden lg:block ">{item.text}</span>
+                  <span className="hidden lg:block">{item.text}</span>
                 </Button>
               </Link>
             ))}
