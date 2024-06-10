@@ -4,7 +4,7 @@ const IntegratedNewsSchema = new mongoose.Schema(
   {
     _id: { type: mongoose.Schema.Types.ObjectId, required: true },
     title: { type: String, required: true },
-    newsurlList: [{ type: String, required: true }], // ここを修正
+    newsurlList: [{ type: String, required: true }],
     full_contents: { type: String, required: true },
     Thumbnail_image: { type: String, required: true },
   }

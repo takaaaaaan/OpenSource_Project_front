@@ -16,7 +16,7 @@ export default function Sidebar() {
         {
           link: "/ranking",
           icon: <FlagTriangleRight />,
-          text: "TOP100",
+          text: "TOP10",
         },
         {
           link: "/map",

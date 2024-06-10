@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/database/dbConnect';
-import { Integrated_News_Society } from '@/database/models/M_gce';
+import { Integrated_News_Society } from '@/database/models/M_Location';
 import { createClient } from '@google/maps';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
@@ -16,7 +16,7 @@ const googleMapsClient = createClient({
  */
 export async function GET(req: NextRequest) {
   await dbConnect();
-  console.log('NewDatabase connected');
+  console.log('M_Location database connected');
 
   try {
     const articles = await Integrated_News_Society.find({});
