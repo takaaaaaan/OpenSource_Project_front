@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { LocomotiveScrollProvider, useLocomotiveScroll } from "react-locomotive-scroll";
@@ -88,10 +88,6 @@ export default function Home() {
       <div className={`wrap ${noto_sans_kr.className}`}>
         <div className="container max-w-full" data-scroll-container ref={contentRef}>
           <div className="main-visual">
-            <video autoPlay muted loop>
-              <source src="/images/main_visual.mp4" type="video/mp4" />
-            </video>
-            <div className="mv-bottom"></div>
             <div className="mv-copy">
               <h2 className={poppins.className}>
                 <span>REELSBio</span> Creator,
@@ -102,7 +98,7 @@ export default function Home() {
               <h2 className={poppins.className}>Platform</h2>
               <div>크리에이터가 생성한 디지털 굿즈의 수익화를 도와주는 플랫폼입니다.</div>
               <div className="mv-button">
-                <span className="text-[#888]">
+                <span className="text-[#000]">
                   릴스바이오 등록을 원하시는 크리에이터시라면 여기를 눌러 크리에이터 인증 후에
                   릴스바이오를 등록해주셍요.
                 </span>
@@ -124,43 +120,6 @@ export default function Home() {
               </h4>
             </div>
           </div>
-          <section className="main-intro-img">
-            <div>
-              <ul>
-                <li data-scroll data-scroll-speed="2" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img01.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="3" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img02.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="1" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img03.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="2.5" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img04.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="1" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img06.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="2.5" data-scroll-delay="0.05">
-                  <p>
-                    <img src="/images/intro_img05.jpg" width="100%" alt="" title="" />
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </section>
-
           <div className="main-title">
             <div data-scroll>
               <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
@@ -181,18 +140,6 @@ export default function Home() {
                 릴스바이오로 여러분의 창작물을 공유하세요! 우리는 창작물을 소유할 수 있는 새로운
                 방법을 제공합니다.
               </h3>
-              <ul>
-                <li data-scroll data-scroll-speed="1" data-scroll-delay="0.2">
-                  <p>
-                    <img src="/images/main_guide_img01.png" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="3" data-scroll-delay="0.2">
-                  <p>
-                    <img src="/images/main_guide_img02.png" alt="" title="" />
-                  </p>
-                </li>
-              </ul>
             </div>
           </div>
           <div className="main-title">
@@ -215,18 +162,6 @@ export default function Home() {
                 유튜브와 트위치의 크리에이터들은 자신의 작품을 판매하고 싶어하고, 팬들은 그 작품을
                 소장하고 싶어해요.
               </h3>
-              <ul>
-                <li data-scroll data-scroll-speed="1" data-scroll-delay="0.2">
-                  <p>
-                    <img src="/images/main_needs_img01.svg" alt="" title="" />
-                  </p>
-                </li>
-                <li data-scroll data-scroll-speed="1" data-scroll-delay="0.2">
-                  <p>
-                    <img src="/images/main_needs_img02.svg" alt="" title="" />
-                  </p>
-                </li>
-              </ul>
             </div>
           </div>
 

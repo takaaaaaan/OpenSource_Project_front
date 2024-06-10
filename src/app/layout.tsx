@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation"; // usePathnameフックをインポート
 import "./globals.css";
 // import Component from "@/components/Sidebar2";
 import Sidebar from "@/components/Sidebar";
@@ -18,6 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [sidebarWidth, setSidebarWidth] = useState<string>("50px"); // デフォルトのサイドバー幅
+  const [showSidebar, setShowSidebar] = useState<boolean>(true); // サイドバーの表示/非表示を管理するステート
+  const pathname = usePathname();
 
   useEffect(() => {
     function handleResize() {
@@ -36,17 +39,27 @@ export default function RootLayout({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (pathname === "/") {
+      setShowSidebar(false);
+    } else {
+      setShowSidebar(true);
+    }
+  }, [pathname]);
+
   return (
     <html lang="en" className="h-full">
       <body className={`h-full overflow-hidden ${inter.className}`}>
-        <div className="hidden sm:block fixed top-0 left-0 h-full z-10">
-          <Sidebar />
-        </div>
-        <div className="pl-[0px]  sm:pl-[58px] md:pl-[58px] lg:pl-sidebar-lg flex flex-col w-full">
+        {showSidebar && (
+          <div className="hidden sm:block fixed top-0 left-0 h-full z-10">
+            <Sidebar />
+          </div>
+        )}
+        <div className={`pl-${showSidebar ? `[0px]  sm:pl-[58px] md:pl-[58px] lg:pl-sidebar-lg` : '0px'} flex flex-col w-full`}>
           <div
             className="fixed top-0 z-20"
             style={{
-              width: `calc(100% - ${sidebarWidth})`,
+              width: `calc(100% - ${showSidebar ? sidebarWidth : '0px'})`,
             }}
           >
             <Header />

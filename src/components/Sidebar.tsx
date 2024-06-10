@@ -21,7 +21,7 @@ export default function Sidebar() {
         {
           link: "/map",
           icon: <Map />,
-          text: "NewMap",
+          text: "News Map",
         },
         {
           link: "/saved",
