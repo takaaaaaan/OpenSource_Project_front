@@ -1,11 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
-import AspectRatioCard from "@/components/AspectRatioCard";
+import { TopCard } from "@/components/NewsCard/TopCard";
 
 const RankingPage: NextPage = () => {
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-xl font-bold">TOP10</h1>
+    <div className="container mx-auto px-4 py-8">
+      <TopCard />
     </div>
   );
 };
