@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectTodayNewsDB } from "@/database/dbConnect";
-import { Top_News_Society } from "@/database/models/M_Top10";
+import { connectIntegrationDB } from "@/database/dbConnect";
+import IntegratedNewsArticle from "@/database/models/Integratednews";
 
 /**
  * @description
@@ -8,11 +8,11 @@ import { Top_News_Society } from "@/database/models/M_Top10";
  * @returns {NextResponse}
  */
 export async function GET(req: NextRequest) {
-  await connectTodayNewsDB();
+  await connectIntegrationDB();
   console.log("Top News Database connected");
 
   try {
-    const articles = await Top_News_Society.find({});
+    const articles = await IntegratedNewsArticle.find({});
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
     console.error("Error fetching articles:", error);

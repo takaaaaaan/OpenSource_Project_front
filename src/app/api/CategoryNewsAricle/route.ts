@@ -1,7 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
-import dbConnect from '@/database/dbConnect';
-import { NewsArticle_Economy, NewsArticle_IT, NewsArticle_Other, NewsArticle_Society, NewsArticle_Life, NewsArticle_World, NewsArticle_Politics } from '@/database/models/M_article';
-import NewsArticle from '@/database/models/articleModel';
+import { NextRequest, NextResponse } from "next/server";
+import { connectPrimaryDB } from "@/database/dbConnect";
+import {
+  NewsArticle_Economy,
+  NewsArticle_IT,
+  NewsArticle_Other,
+  NewsArticle_Society,
+  NewsArticle_Life,
+  NewsArticle_World,
+  NewsArticle_Politics,
+} from "@/database/models/M_article";
+import NewsArticle from "@/database/models/articleModel";
 
 /**
  * /api/CategoryNewsArticle
@@ -10,49 +18,52 @@ import NewsArticle from '@/database/models/articleModel';
  * @returns {NextResponse} 카테고리를 기반으로 가져온 기사 데이터를 포함한 응답. 카테고리가 유효하지 않은 경우 오류 메시지를 포함한 응답을 반환한다.
  */
 export async function GET(req: NextRequest) {
-  await dbConnect();
-  console.log('NewDatabase connected');
+  await connectPrimaryDB();
+  console.log("NewDatabase connected");
 
   const { searchParams } = new URL(req.url);
-  const category = searchParams.get('category');
+  const category = searchParams.get("category");
 
   let model;
 
   if (!category) {
     model = NewsArticle_Economy;
-    console.log('Default NewsArticle');
+    console.log("Default NewsArticle");
   } else {
     switch (category) {
-      case '경제':
+      case "경제":
         model = NewsArticle_Economy;
-        console.log('Economy');
+        console.log("Economy");
         break;
-      case '정치':
+      case "정치":
         model = NewsArticle_Politics;
-        console.log('Government');
+        console.log("Government");
         break;
-      case '사회':
+      case "사회":
         model = NewsArticle_Society;
-        console.log('Social');
+        console.log("Social");
         break;
-      case '생활':
+      case "생활":
         model = NewsArticle_Life;
-        console.log('Life');
+        console.log("Life");
         break;
-      case '세계':
+      case "세계":
         model = NewsArticle_World;
-        console.log('Worlds');
+        console.log("Worlds");
         break;
-      case 'IT':
+      case "IT":
         model = NewsArticle_IT;
-        console.log('IT');
+        console.log("IT");
         break;
-      case '기타':
+      case "기타":
         model = NewsArticle_Other;
-        console.log('Other');
+        console.log("Other");
         break;
       default:
-        return NextResponse.json({ message: 'Invalid category' }, { status: 400 });
+        return NextResponse.json(
+          { message: "Invalid category" },
+          { status: 400 }
+        );
     }
   }
 
@@ -60,7 +71,10 @@ export async function GET(req: NextRequest) {
     const articles = await model.find({});
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
-    console.error('Error fetching articles:', error);
-    return NextResponse.json({ message: 'Error fetching articles' }, { status: 500 });
+    console.error("Error fetching articles:", error);
+    return NextResponse.json(
+      { message: "Error fetching articles" },
+      { status: 500 }
+    );
   }
 }

@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
-import dbConnect from '@/database/dbConnect';
-import { Integrated_News_Society } from '@/database/models/M_Location';
-import { createClient } from '@google/maps';
+import { NextRequest, NextResponse } from "next/server";
+import { connectPrimaryDB } from "@/database/dbConnect";
+import { Integrated_News_Society } from "@/database/models/M_Location";
+import { createClient } from "@google/maps";
 
-const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 const googleMapsClient = createClient({
   key: GOOGLE_MAPS_API_KEY,
 });
@@ -15,8 +15,8 @@ const googleMapsClient = createClient({
  * @returns {NextResponse} 데이터베이스에서 가져온 기사 데이터를 포함한 응답. 오류가 발생한 경우 오류 메시지를 포함한 응답을 반환한다.
  */
 export async function GET(req: NextRequest) {
-  await dbConnect();
-  console.log('M_Location database connected');
+  await connectPrimaryDB();
+  console.log("M_Location database connected");
 
   try {
     const articles = await Integrated_News_Society.find({});
@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
       const { full_contents } = article;
 
       // "장소: "라는 단어의 인덱스를 찾기
-      const placeIndex = full_contents.indexOf('장소: ');
+      const placeIndex = full_contents.indexOf("장소: ");
 
       if (placeIndex !== -1) {
         // "장소: " 단어 다음의 단어 추출
@@ -49,8 +49,11 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(results, { status: 200 });
   } catch (error) {
-    console.error('Error fetching articles:', error);
-    return NextResponse.json({ message: 'Error fetching articles' }, { status: 500 });
+    console.error("Error fetching articles:", error);
+    return NextResponse.json(
+      { message: "Error fetching articles" },
+      { status: 500 }
+    );
   }
 }
 
@@ -60,11 +63,13 @@ function extractNextWord(text: string, index: number): string | null {
   return words.length > 0 ? words[0] : null;
 }
 
-async function geocodeLocation(location: string): Promise<{ lat: number; lng: number } | null> {
+async function geocodeLocation(
+  location: string
+): Promise<{ lat: number; lng: number } | null> {
   return new Promise((resolve, reject) => {
     googleMapsClient.geocode({ address: location }, (err, response) => {
       if (err) {
-        console.error('Geocoding error:', err);
+        console.error("Geocoding error:", err);
         reject(err);
       } else {
         resolve(response.json.results[0]?.geometry.location || null);
