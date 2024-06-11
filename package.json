@@ -29,6 +29,7 @@
     "@radix-ui/react-toast": "^1.1.5",
     "@react-google-maps/api": "^2.19.3",
     "@types/googlemaps": "^3.43.3",
+    "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",

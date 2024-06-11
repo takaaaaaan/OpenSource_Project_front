@@ -8,7 +8,7 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import TestHeader from "@/components/Header/TestHeader";
+import MainPageHeader from "@/components/Header/MainPageHeader";
 
 // Inter fontの利用例です。実際のプロジェクトの設定に応じて調整してください。
 const inter = Inter({ subsets: ["latin"] });
@@ -62,7 +62,7 @@ export default function RootLayout({
               width: `calc(100% - ${showSidebar ? sidebarWidth : '0px'})`,
             }}
           >
-            {pathname === "/" ? <TestHeader /> : <Header />}
+            {pathname === "/" ? <MainPageHeader /> : <Header />}
           </div>
           <main className="flex-grow overflow-auto pt-header p-4">
             {children}
