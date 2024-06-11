@@ -5,11 +5,10 @@ import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation"; // usePathnameフックをインポート
 import "./globals.css";
-// import Component from "@/components/Sidebar2";
 import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import MainHeader from "@/components/MainHeader";
+import TestHeader from "@/components/Header/TestHeader";
 
 // Inter fontの利用例です。実際のプロジェクトの設定に応じて調整してください。
 const inter = Inter({ subsets: ["latin"] });
@@ -63,8 +62,7 @@ export default function RootLayout({
               width: `calc(100% - ${showSidebar ? sidebarWidth : '0px'})`,
             }}
           >
-            <MainHeader/>
-            <Header />
+            {pathname === "/" ? <TestHeader /> : <Header />}
           </div>
           <main className="flex-grow overflow-auto pt-header p-4">
             {children}
@@ -77,3 +75,38 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// "use client";
+
+// import React, { useState, useEffect } from "react";
+// import { Inter } from "next/font/google";
+// import { usePathname } from "next/navigation"; // usePathnameフックをインポート
+// import "./globals.css";
+// import Sidebar from "@/components/Sidebar";
+// import Header from "@/components/Header/Header";
+// import Footer from "@/components/Footer";
+// import TestHeader from "@/components/Header/TestHeader";
+
+// // Inter fontの利用例です。実際のプロジェクトの設定に応じて調整してください。
+// const inter = Inter({ subsets: ["latin"] });
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     <html lang="en" className="h-full">
+//       <body className={`h-full overflow-hidden ${inter.className}`}>
+//         <div className={`pl-0 flex flex-col w-full`}>
+//           <TestHeader />
+//           <main className="flex-grow overflow-auto  p-4">{children}</main>
+//           <footer className="block sm:hidden">
+//             <Footer />
+//           </footer>
+//         </div>
+//       </body>
+//     </html>
+//   );
+// }
