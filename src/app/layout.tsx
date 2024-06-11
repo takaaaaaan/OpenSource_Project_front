@@ -1,16 +1,14 @@
-// \src\app\layout.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
-import { usePathname } from "next/navigation"; // usePathnameフックをインポート
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import MainPageHeader from "@/components/Header/MainPageHeader";
 
-// Inter fontの利用例です。実際のプロジェクトの設定に応じて調整してください。
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -18,29 +16,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [sidebarWidth, setSidebarWidth] = useState<string>("50px"); // デフォルトのサイドバー幅
-  const [showSidebar, setShowSidebar] = useState<boolean>(true); // サイドバーの表示/非表示を管理するステート
+  const [sidebarWidth, setSidebarWidth] = useState<string>("50px");
+  const [showSidebar, setShowSidebar] = useState<boolean>(true);
   const pathname = usePathname();
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 1024) {
-        setSidebarWidth("250px"); // lgサイズ
+        setSidebarWidth("250px");
       } else if (window.innerWidth >= 768) {
-        setSidebarWidth("58px"); // mdサイズ
+        setSidebarWidth("58px");
       } else {
-        setSidebarWidth("0px"); // smサイズ
+        setSidebarWidth("0px");
       }
     }
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // コンポーネントマウント時に初期サイズを設定
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    if (pathname === "/") {
+    if (pathname === "/" || pathname === "/admin") {
       setShowSidebar(false);
     } else {
       setShowSidebar(true);
@@ -55,14 +53,14 @@ export default function RootLayout({
             <Sidebar />
           </div>
         )}
-        <div className={`pl-${showSidebar ? `[0px]  sm:pl-[58px] md:pl-[58px] lg:pl-sidebar-lg` : '0px'} flex flex-col w-full`}>
+        <div className={`pl-${showSidebar ? `[0px] sm:pl-[58px] md:pl-[58px] lg:pl-sidebar-lg` : '0px'} flex flex-col w-full`}>
           <div
             className="fixed top-0 z-20"
             style={{
               width: `calc(100% - ${showSidebar ? sidebarWidth : '0px'})`,
             }}
           >
-            {pathname === "/" ? <MainPageHeader /> : <Header />}
+            {(pathname === "/" || pathname === "/admin") ? <MainPageHeader /> : <Header />}
           </div>
           <main className="flex-grow overflow-auto pt-header p-4">
             {children}
@@ -75,6 +73,7 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
 // "use client";
