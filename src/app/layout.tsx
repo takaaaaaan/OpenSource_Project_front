@@ -63,7 +63,7 @@ export default function RootLayout({
               width: `calc(100% - ${showSidebar ? sidebarWidth : '0px'})`,
             }}
           >
-            <MainHeader/>
+            {/* <MainHeader/> */}
             <Header />
           </div>
           <main className="flex-grow overflow-auto pt-header p-4">
