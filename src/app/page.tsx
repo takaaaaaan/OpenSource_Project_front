@@ -5,9 +5,9 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { LocomotiveScrollProvider, useLocomotiveScroll } from "react-locomotive-scroll";
 
-import "./styles/content.css";
-import "./styles/setting.css";
-import "./styles/locomotive-scroll.css";
+import "../styles/content.css";
+import "../styles/setting.css";
+import "../styles/locomotive-scroll.css";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -87,80 +87,102 @@ export default function Home() {
     >
       <div className={`wrap ${noto_sans_kr.className}`}>
         <div className="container max-w-full" data-scroll-container ref={contentRef}>
-          <div className="main-visual">
+          {/* <div className="main-visual">
             <div className="mv-copy">
-              <h2 className={poppins.className}>
-                <span>REELSBio</span> Creator,
-              </h2>
-              <h2 className={poppins.className}>
-                Digital <span>Goods</span>,
-              </h2>
-              <h2 className={poppins.className}>Platform</h2>
-              <div>크리에이터가 생성한 디지털 굿즈의 수익화를 도와주는 플랫폼입니다.</div>
+              <h2 className={poppins.className}>The Blue Ocean</h2>
+              <div>
+                우리의 목표는 가짜 뉴스를 선별하고 사용자에게 정확한 기사를 전달하는 것입니다.
+              </div>
               <div className="mv-button">
                 <span className="text-[#000]">
-                  릴스바이오 등록을 원하시는 크리에이터시라면 여기를 눌러 크리에이터 인증 후에
-                  릴스바이오를 등록해주셍요.
+                  뉴스의 진실성을 확인하고 정확한 정보를 제공받고 싶다면, 지금 바로 시작해보세요.
                 </span>
               </div>
             </div>
-          </div>
-
-          <div className="main-intro">
-            <div>
-              <h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.05">
-                REELSBio는
+          </div> */}
+          <div className="main-title">
+            <div data-scroll>
+              <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
+                <span>The Blue Ocean &nbsp;</span>
               </h2>
-              <h3 data-scroll data-scroll-speed="2.3" data-scroll-delay="0.05">
-                크리에이터가 생성한 디지털 굿즈의 수익화를 도와주는 플랫폼입니다.
+              <h3 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10">
+                다양한 기능을 제공합니다!
               </h3>
-              <h4 data-scroll data-scroll-speed="2.6" data-scroll-delay="0.05">
-                크리에이터가 생성한 포토카드나 창작 아트 형태의 디지털 굿즈를 판매하는 플랫폼으로,
-                창작자의 꿈을 지원합니다.
-              </h4>
             </div>
           </div>
           <div className="main-title">
             <div data-scroll>
               <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
-                <span>REELSBio &nbsp;</span>
+                <span>The Blue Ocean &nbsp;</span>
               </h2>
               <h3 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10">
-                창작물을 공유하세요!
+                다양한 기능을 제공합니다!
               </h3>
+            </div>
+          </div>
+          {/* <div className="main-intro">
+            <div>
+              <h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.05">
+                정보의 질 향상 시간의 절약 신뢰성 확보
+              </h2>
+              <h3 data-scroll data-scroll-speed="2.3" data-scroll-delay="0.05">
+                사용자가 신뢰할 수 있는 정보를 빠르고 정확하게 제공하여, 정보의 질을 향상시키고
+                시간을 절약하며 신뢰성을 확보합니다.
+              </h3>
+            </div>
+          </div> */}
+          <div className="main-guide">
+            <div>
+              <h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.2">
+                <span>정보의 질 향상</span>
+                <br />
+                <span> 시간의 절약</span>
+                <br />
+                <span>신뢰성 확보</span>
+              </h2>
+              <h3 data-scroll data-scroll-speed="2" data-scroll-delay="0.4">
+                사용자가 신뢰할 수 있는 정보를 빠르고 정확하게 제공하여, 정보의 질을 향상시키고
+                시간을 절약하며 신뢰성을 확보합니다.
+              </h3>
+            </div>
+          </div>
+          <div className="main-intro">
+            <div>
+              <h3 data-scroll data-scroll-speed="2" data-scroll-delay="0.05">
+                Features
+              </h3>
+              <h2 data-scroll data-scroll-speed="2.3" data-scroll-delay="0.05">
+                다양한 기능을 제공합니다!
+              </h2>
             </div>
           </div>
 
           <div className="main-guide">
             <div>
               <h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.2">
-                아직도 <span>돈 안되는 인스타그램에서 창작물을 공유</span>하고 계신가요?
+                <span>POSTIVE/NEGERTIBE</span>
               </h2>
               <h3 data-scroll data-scroll-speed="2" data-scroll-delay="0.4">
-                릴스바이오로 여러분의 창작물을 공유하세요! 우리는 창작물을 소유할 수 있는 새로운
-                방법을 제공합니다.
+                긍정적인 뉴스와 부정적인 뉴스가 구분되어 나옵니다
               </h3>
             </div>
           </div>
           <div className="main-title">
             <div data-scroll>
               <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
-                <i>크리에이터는 판매!</i>
+                자신의 <span>지역에 어떤 뉴스</span>가 있는지 확인 해보세요.
               </h2>
-              <h3 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10">
-                팬들은 구매!
-              </h3>
+              <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10"></h2>
             </div>
           </div>
 
           <div className="main-needs">
             <div>
               <h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.2">
-                크리에이터는 <span>판매</span>를 원하고 팬들은 <span>구매</span>를 원합니다.
+                사용자들이 좋아하는 <span>뉴스</span>를<span>TOP100</span>을 통해 찾아보세요.
               </h2>
               <h3 data-scroll data-scroll-speed="2" data-scroll-delay="0.4">
-                유튜브와 트위치의 크리에이터들은 자신의 작품을 판매하고 싶어하고, 팬들은 그 작품을
-                소장하고 싶어해요.
+                사람들이 좋아하는 뉴스가 TOP100을 통해 나타납니다.
               </h3>
             </div>
           </div>
@@ -168,10 +190,10 @@ export default function Home() {
           <div className="main-title">
             <div data-scroll>
               <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
-                <em>REELSBio &nbsp;</em>
+                <em>카테고리 선택 &nbsp;</em>
               </h2>
               <h3 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10">
-                사용자들은 이렇게 말해요!
+                원하는 카테고리를 선택하여 관심있는 뉴스를 찾아보세요.
               </h3>
             </div>
           </div>
@@ -179,14 +201,14 @@ export default function Home() {
           <div className="main-team" ref={mainTeamRef}>
             <div className="team-title">
               <h2>
-                <span>커뮤니티의 일원</span>이 돼서 창작자와 소통해 보세요.
+                <span>요약된 뉴스</span>를 통해 빠르고 정확한 뉴스를 확인하세요.
               </h2>
             </div>
           </div>
         </div>
         <style jsx global>{`
           body {
-            // background-color: black;
+            background-color: black;
             width: 100%;
           }
           .main-footer {
