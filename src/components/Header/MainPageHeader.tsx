@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Newspaper, FlagTriangleRight, Map, Pin, User, Ship } from "lucide-react";
+import { Newspaper, FlagTriangleRight, Map, Pin, User, Ship, Blocks } from "lucide-react";
 import ctl from "@netlify/classnames-template-literals";
 
 const menuList = [
@@ -23,9 +23,9 @@ const menuList = [
         text: "News Map",
       },
       {
-        link: "/saved",
-        icon: <Pin />,
-        text: "Saved",
+        link: "/Integrate",
+        icon: <Blocks />,
+        text: "Integrate",
       },
     ],
   },

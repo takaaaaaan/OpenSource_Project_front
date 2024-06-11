@@ -10,6 +10,6 @@ const IntegratedNewsSchema = new mongoose.Schema(
   }
 );
 
-const Integrated_News_Society = mongoose.models.Integrated_News_Society || mongoose.model('Integrated_News_Society', IntegratedNewsSchema, 'Integrated_Society');
+const Integrated_News_Society = mongoose.models.Integrated_News_Society || mongoose.model('Society', IntegratedNewsSchema, 'Society');
 
 export { Integrated_News_Society };

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectPrimaryDB } from "@/database/dbConnect";
+import { connectIntegrationDB } from "@/database/dbConnect";
 import { Integrated_News_Society } from "@/database/models/M_Location";
 import { createClient } from "@google/maps";
 
@@ -15,7 +15,7 @@ const googleMapsClient = createClient({
  * @returns {NextResponse} 데이터베이스에서 가져온 기사 데이터를 포함한 응답. 오류가 발생한 경우 오류 메시지를 포함한 응답을 반환한다.
  */
 export async function GET(req: NextRequest) {
-  await connectPrimaryDB();
+  await connectIntegrationDB();
   console.log("M_Location database connected");
 
   try {
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
         const nextWord = extractNextWord(full_contents, placeIndex);
 
         // 抽出された単語をコンソールにログ出力
-        // console.log(`Extracted word: ${nextWord}`);
+        console.log(`Extracted word: ${nextWord}`);
 
         if (nextWord) {
           // geocoder를 사용하여 위치 정보를 가져오기
