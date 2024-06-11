@@ -1,16 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectPrimaryDB } from "@/database/dbConnect";
-import NewsArticle from "@/database/models/articleModel";
+import { connectIntegrationDB } from "@/database/dbConnect";
+import IntegratedNewsArticle from "@/database/models/Integratednews";
 
 /**
- * @description news_articles コレクションの全データを取得
+ * @description
+ * @param {NextRequest} req
+ * @returns {NextResponse}
  */
 export async function GET(req: NextRequest) {
-  await connectPrimaryDB();
-  console.log("Database connected");
+  await connectIntegrationDB();
+  console.log("Top News Database connected");
 
   try {
-    const articles = await NewsArticle.find({});
+    const articles = await IntegratedNewsArticle.find({});
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
     console.error("Error fetching articles:", error);

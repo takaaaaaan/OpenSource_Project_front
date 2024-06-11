@@ -2,11 +2,20 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import CategorizeNavigation from "@/components/CategorizeNavigation";
-import CategoryRatioCard02 from "@/components/NewsCard/CategoryRatioCard02";
+import CategoryRatioCard03 from "@/components/NewsCard/CategoryRatioCard03";
 import Lottie from "react-lottie-player";
 import { PaginationDemo } from "@/components/Pagination";
 import lottieJson from "../../../../public/lottie/loading.json";
-import { Article } from "../../../../types/Article"; // Import the correct Article type
+
+type PaginationLinkProps = React.ComponentProps<typeof Link>;
+
+interface Article {
+  urlToImage: string;
+  title: string;
+  content: string;
+  publishedAt?: string;
+  newsurlList: string[]; // 추가된 부분
+}
 
 const checkImageUrl = (url: string) => {
   if (!url || url === "이미지 없음") {
@@ -15,38 +24,33 @@ const checkImageUrl = (url: string) => {
   return url;
 };
 
-export default function Home() {
+export default function SavedPage() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageArticles, setPageArticles] = useState<Article[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const articlesPerPage = 30;
+  const articlesPerPage = 20;
 
   useEffect(() => {
     const fetchArticleData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          `/api/CategoryNewsAricle${selectedCategory ? `?category=${selectedCategory}` : ""}`
-        );
+        const response = await fetch("/api/Integretion");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
         if (Array.isArray(data)) {
           const formattedData = data.map((item: any) => ({
-            urlToImage: checkImageUrl(item.urlToImage),
+            urlToImage: checkImageUrl(item.Thumbnail_image),
             title: item.title,
-            content: item.content,
+            content: item.full_contents,
             publishedAt: item.publishedAt,
-            sentiment: "neutral",
-            newsurlList: item.newsurlList || "" // Ensure this property is included
+            newsurlList: item.newsurlList
           }));
           setArticles(formattedData);
           setPageArticles(formattedData.slice(0, articlesPerPage));
-        } else {
-          console.error("Invalid data structure: ", data);
         }
       } catch (error) {
         console.error("Failed to fetch articles: ", error);
@@ -64,11 +68,11 @@ export default function Home() {
     setPageArticles(articles.slice(indexOfFirstArticle, indexOfLastArticle));
   }, [currentPage, articles]);
 
-  const categories = ["경제", "정치", "사회", "생활", "세계", "IT", "기타"];
+
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // 카테고리 변경 시 페이지 초기화
+    setCurrentPage(1); // Reset page when category changes
   };
 
   const paginate = (pageNumber: number) => {
@@ -79,9 +83,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex flex-row items-start">
-        <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
-      </div>
 
       {loading ? (
         <div className="flex justify-center items-center flex-grow">
@@ -89,7 +90,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="flex-grow p-4">
-          <CategoryRatioCard02 articles={pageArticles} />
+          <CategoryRatioCard03 articles={pageArticles} />
         </div>
       )}
 

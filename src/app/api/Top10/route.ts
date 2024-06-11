@@ -42,7 +42,10 @@ export async function GET(req: NextRequest) {
     const articles = await model.find({});
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
-    console.error('Error fetching articles:', error);
-    return NextResponse.json({ message: 'Error fetching articles' }, { status: 500 });
+    console.error("Error fetching articles:", error);
+    return NextResponse.json(
+      { message: "Error fetching articles" },
+      { status: 500 }
+    );
   }
 }

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   AlertDialog,
@@ -12,14 +12,59 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { X } from "lucide-react";
+import { X, Volume2 } from "lucide-react";
 import ctl from "@netlify/classnames-template-literals";
 import { AspectRatioCardProps, Article } from "../../../types/Article";
 
+const fetchSentiment = async (content: string) => {
+  try {
+    const response = await fetch('http://127.0.0.1:8000/sentiment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ content }),
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data.sentiment;
+  } catch (error) {
+    console.error('Failed to fetch sentiment:', error);
+    return 'neutral';
+  }
+};
+
+const speak = (text: string) => {
+  const utterance = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(utterance);
+};
+
+const stopSpeaking = () => {
+  speechSynthesis.cancel();
+};
+
 const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
+  const [analyzedArticles, setAnalyzedArticles] = useState<Article[]>([]);
+
+  useEffect(() => {
+    const analyzeSentiments = async () => {
+      const articlesWithSentiment = await Promise.all(
+        articles.map(async (article) => {
+          const sentiment = await fetchSentiment(article.content);
+          return { ...article, sentiment };
+        })
+      );
+      setAnalyzedArticles(articlesWithSentiment);
+    };
+
+    analyzeSentiments();
+  }, [articles]);
+
   return (
-    <div className="pt-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
-      {articles.map((article, index) => {
+    <div className="pt-4 pb-96 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
+      {analyzedArticles.map((article, index) => {
         const sentiment = article.sentiment ?? "neutral";
         const sentimentClass =
           sentiment === "negative"
@@ -27,6 +72,13 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
             : sentiment === "neutral"
               ? badgeNeutral
               : badgePositive;
+
+        const dotClass =
+          sentiment === "negative"
+            ? notificationDotNegative
+            : sentiment === "neutral"
+              ? notificationDotNeutral
+              : notificationDotPositive;
 
         return (
           <AlertDialog key={index}>
@@ -40,7 +92,7 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
                     layout="fill"
                     unoptimized
                   />
-                  <div className={notificationDot}></div>
+                  <div className={dotClass}></div>
                 </div>
                 <div className="p-2 h-full">
                   <div
@@ -72,7 +124,7 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
                 <div className="flex justify-end mt-2">
                   <div className={sentimentClass}>
                     {sentiment === "negative" && "negative"}
-                    {sentiment === "neutral" && "normal"}
+                    {sentiment === "neutral" && "neutral"}
                     {sentiment === "positive" && "positive"}
                   </div>
                 </div>
@@ -81,8 +133,12 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
                 {article.content}
               </AlertDialogDescription>
               <AlertDialogFooter>
-                <div className="flex justify-center">
-                  <AlertDialogCancel>
+                <div className="flex justify-between w-full">
+                  <button onClick={() => speak(article.content)} className="flex items-center space-x-2 text-blue-600 hover:underline">
+                    <Volume2 />
+                    <span>Listen</span>
+                  </button>
+                  <AlertDialogCancel onClick={stopSpeaking}>
                     <X />
                   </AlertDialogCancel>
                 </div>
@@ -117,7 +173,7 @@ const badgeNegative = ctl(`
 const badgeNeutral = ctl(`
   ${badge}
   text-white
-  bg-gray-600
+  bg-blue-600
 `);
 
 const badgePositive = ctl(`
@@ -126,14 +182,27 @@ const badgePositive = ctl(`
   bg-green-600
 `);
 
-const notificationDot = ctl(`
+const notificationDotBase = ctl(`
   absolute
   -top-4
   -right-2
   h-6
   w-6
-  bg-green-500
   rounded-full
   my-1
 `);
 
+const notificationDotNegative = ctl(`
+  ${notificationDotBase}
+  bg-red-500
+`);
+
+const notificationDotNeutral = ctl(`
+  ${notificationDotBase}
+  bg-blue-500
+`);
+
+const notificationDotPositive = ctl(`
+  ${notificationDotBase}
+  bg-green-500
+`);

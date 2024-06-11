@@ -1,11 +1,12 @@
-export type Article = {
-    urlToImage?: string | null;
-    title: string;
-    content: string;
-    publishedAt?: string;
-    sentiment?: "negative" | "neutral" | "positive"; // 仮の感情分析結果
+export interface Article {
+  urlToImage: string;
+  title: string;
+  content: string;
+  publishedAt?: string;
+  newsurlList: string[]; // 추가된 부분
+  sentiment?: string; // 감정 분석 결과를 위한 속성
 }
 
-export type AspectRatioCardProps ={
-    articles: Article[];
+export interface AspectRatioCardProps {
+  articles: Article[];
 }

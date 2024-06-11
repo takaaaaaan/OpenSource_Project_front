@@ -24,9 +24,9 @@ export default function Sidebar() {
           text: "News Map",
         },
         {
-          link: "/saved",
+          link: "/Integrate",
           icon: <Pin />,
-          text: "Saved",
+          text: "Integrate",
         },
       ],
     },
