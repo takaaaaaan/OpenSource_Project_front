@@ -31,23 +31,27 @@ const AdminPage: React.FC = () => {
     if (!user) {
       router.push("/login");
     } else {
-      fetch("/api/Count")
-        .then((response) => response.json())
-        .then((data: SentimentData) => {
-          setSentimentData(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching sentiment data:", error);
-        });
+      setTimeout(() => {
+        fetch("/api/Count")
+          .then((response) => response.json())
+          .then((data: SentimentData) => {
+            setSentimentData(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching sentiment data:", error);
+          });
+      }, 500); // 500ミリ秒の遅延を追加
 
-      fetch("/api/AllCount")
-        .then((response) => response.json())
-        .then((data: AllCountData[]) => {
-          setAllCountData(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching all count data:", error);
-        });
+      setTimeout(() => {
+        fetch("/api/AllCount")
+          .then((response) => response.json())
+          .then((data: AllCountData[]) => {
+            setAllCountData(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching all count data:", error);
+          });
+      }, 1000); // 1000ミリ秒の遅延を追加
     }
   }, [router]);
 

@@ -104,7 +104,7 @@ export default function Home() {
       description: "Read the news using TTS",
       link: "https://example.com/transform",
     },
-  ];  
+  ];
 
   return (
     <div className="h-full">
@@ -115,7 +115,7 @@ export default function Home() {
       <div className="h-[400px] mt-9">
         <SubCarousel images={newsImages} />
       </div>
-      <h1 className="mt-9 ml-20 text-3xl font-bold">분석</h1>
+      <h1 className="mt-9 ml-20 text-3xl font-bold">Function</h1>
       <div className="h-[400px] mt-9 ">
         <SubCarousel images={analysisImages} />
       </div>

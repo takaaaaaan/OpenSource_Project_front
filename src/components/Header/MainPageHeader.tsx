@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Newspaper, FlagTriangleRight, Map, Pin, User, Ship, Blocks } from "lucide-react";
+import { usePathname } from "next/navigation"; // usePathname をインポート
+import { Newspaper, FlagTriangleRight, Map, User, Ship, Blocks } from "lucide-react";
 import ctl from "@netlify/classnames-template-literals";
 
 const menuList = [
@@ -50,6 +51,22 @@ const logo_text = ctl(`
 `);
 
 export default function MainPageHeader() {
+  const pathname = usePathname(); // 現在のパスを取得
+
+  const updatedMenuList = menuList.map((menuGroup) => {
+    if (menuGroup.group === "Settings" && pathname === "/admin") {
+      return {
+        ...menuGroup,
+        items: menuGroup.items.map((item) =>
+          item.link === "/login"
+            ? { ...item, text: "Logout", link: "/" }
+            : item
+        ),
+      };
+    }
+    return menuGroup;
+  });
+
   return (
     <div className="relative bg-white bg-opacity-50">
       <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-50"></div>
@@ -61,7 +78,7 @@ export default function MainPageHeader() {
           </Link>
         </div>
         <div className="flex space-x-4 ">
-          {menuList
+          {updatedMenuList
             .filter((menuGroup) => menuGroup.group === "Main")[0]
             .items.map((item, itemIndex) => (
               <div key={itemIndex} className="relative hover-scale">
@@ -73,7 +90,7 @@ export default function MainPageHeader() {
             ))}
         </div>
         <div className="flex-1 flex justify-end space-x-4 mr-3">
-          {menuList
+          {updatedMenuList
             .filter((menuGroup) => menuGroup.group === "Settings")[0]
             .items.map((item, itemIndex) => (
               <div key={itemIndex} className="relative hover-scale">

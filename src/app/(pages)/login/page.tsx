@@ -61,8 +61,8 @@ export default function LoginForm() {
                 />
               </div>
             </div>
-            {message && <p>{message}</p>}
-            <CardFooter className="flex justify-between">
+            <div className="pt-3">{message && <p>{message}</p>}</div>
+            <div className="flex justify-between mt-4">
               <Button
                 variant="outline"
                 onClick={() => {
@@ -74,7 +74,7 @@ export default function LoginForm() {
                 취소
               </Button>
               <Button type="submit">로그인</Button>
-            </CardFooter>
+            </div>
           </form>
         </CardContent>
       </Card>

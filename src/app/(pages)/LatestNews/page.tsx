@@ -84,14 +84,15 @@ export default function Home() {
         <div className="flex items-center mb-4">
           <Lottie loop animationData={Animation02} play style={{ width: 100, height: 100 }} />
           <div className="ml-4 text-center">
-            <h1 className="text-2xl font-bold">Competitions</h1>
+            <h1 className="text-2xl font-bold">Latest News</h1>
             <p>
-              Grow your data science skills by competing in our exciting competitions. Find help in
-              the documentation or learn about Community Competitions.
+              It collects the latest news and removes the wrong information and provides accurate
+              informations
             </p>
           </div>
         </div>
       </div>
+
       <div className="w-full flex justify-center mt-4">
         <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
       </div>

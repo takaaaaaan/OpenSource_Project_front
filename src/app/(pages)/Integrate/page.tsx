@@ -5,8 +5,8 @@ import CategorizeNavigation from "@/components/CategorizeNavigation";
 import CategoryRatioCard03 from "@/components/NewsCard/CategoryRatioCard03";
 import Lottie from "react-lottie-player";
 import { PaginationDemo } from "@/components/Pagination";
-import lottieJson from "../../../../public/lottie/loading.json";
-
+import Animation02 from "../../../../public/lottie/Animation02.json";
+import lottieJson from "../../../../public/lottie/default-animation.json";
 type PaginationLinkProps = React.ComponentProps<typeof Link>;
 
 interface Article {
@@ -83,7 +83,18 @@ export default function SavedPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-
+      <div className="w-full flex flex-col items-center rounded-lg bg-white border border-cyan-800 shadow-md p-4 mt-4">
+        <div className="flex items-center mb-4">
+          <Lottie loop animationData={Animation02} play style={{ width: 100, height: 100 }} />
+          <div className="ml-4 text-center">
+            <h1 className="text-2xl font-bold">News Integrate page</h1>
+            <p>
+              Grow your data science skills by competing in our exciting competitions. Find help in
+              the documentation or learn about Community Competitions.
+            </p>
+          </div>
+        </div>
+      </div>
       {loading ? (
         <div className="flex justify-center items-center flex-grow">
           <Lottie loop animationData={lottieJson} play style={{ width: 200, height: 200 }} />
@@ -94,7 +105,7 @@ export default function SavedPage() {
         </div>
       )}
 
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-2 shadow-md z-50" style={{ paddingRight: '16rem' }}>
+      <div className="fixed bottom-0 w-full flex justify-center bg-white py-2 shadow-md z-50">
         <PaginationDemo paginate={paginate} currentPage={currentPage} totalPages={Math.ceil(articles.length / articlesPerPage)} />
       </div>
     </div>
