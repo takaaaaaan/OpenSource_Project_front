@@ -55,7 +55,7 @@ export default function MainPageHeader() {
       <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-50"></div>
       <div className="relative flex justify-between items-center w-full py-4">
         <div className="flex-1 flex justify-start items-center space-x-4">
-          <Link href="/login" className="w-full flex justify-center items-center gap-2 hover-scale">
+          <Link href="/" className="w-full flex justify-center items-center gap-2 hover-scale">
             <Ship className="w-9 h-9" />
             <span className={logo_text}>The Blue Ocean</span>
           </Link>

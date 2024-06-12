@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import CategorizeNavigation from "@/components/CategorizeNavigation";
 import CategoryRatioCard02 from "@/components/NewsCard/CategoryRatioCard02";
 import Lottie from "react-lottie-player";
 import { PaginationDemo } from "@/components/Pagination";
 import lottieJson from "../../../../public/lottie/loading.json";
 import { Article } from "../../../../types/Article"; // Import the correct Article type
+import Animation02 from "../../../../public/lottie/Animation02.json";
+import { Separator } from "@/components/ui/separator";
 
 const checkImageUrl = (url: string) => {
   if (!url || url === "이미지 없음") {
@@ -41,7 +42,7 @@ export default function Home() {
             content: item.content,
             publishedAt: item.publishedAt,
             sentiment: "neutral",
-            newsurlList: item.newsurlList || "" // Ensure this property is included
+            newsurlList: item.newsurlList || "", // Ensure this property is included
           }));
           setArticles(formattedData);
           setPageArticles(formattedData.slice(0, articlesPerPage));
@@ -78,23 +79,38 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex flex-row items-start">
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      <div className="w-full flex flex-col items-center bg-white border border-cyan-800 shadow-md p-4 mt-4">
+        <div className="flex items-center mb-4">
+          <Lottie loop animationData={Animation02} play style={{ width: 100, height: 100 }} />
+          <div className="ml-4 text-center">
+            <h1 className="text-2xl font-bold">Competitions</h1>
+            <p>
+              Grow your data science skills by competing in our exciting competitions. Find help in
+              the documentation or learn about Community Competitions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="w-full flex justify-center mt-4">
         <CategorizeNavigation categories={categories} onSelect={handleCategorySelect} />
       </div>
+      <Separator className="my-1" />
 
       {loading ? (
         <div className="flex justify-center items-center flex-grow">
           <Lottie loop animationData={lottieJson} play style={{ width: 200, height: 200 }} />
         </div>
       ) : (
-        <div className="flex-grow p-4">
-          <CategoryRatioCard02 articles={pageArticles} />
-        </div>
+        <CategoryRatioCard02 articles={pageArticles} />
       )}
-
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-2 shadow-md z-50" style={{ paddingRight: '16rem' }}>
-        <PaginationDemo paginate={paginate} currentPage={currentPage} totalPages={Math.ceil(articles.length / articlesPerPage)} />
+      <Separator className="my-1" />
+      <div className="fixed bottom-0 w-full flex justify-center bg-white  shadow-md z-50">
+        <PaginationDemo
+          paginate={paginate}
+          currentPage={currentPage}
+          totalPages={Math.ceil(articles.length / articlesPerPage)}
+        />
       </div>
     </div>
   );

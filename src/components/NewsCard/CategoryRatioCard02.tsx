@@ -63,7 +63,7 @@ const CategoryRatioCard02: React.FC<AspectRatioCardProps> = ({ articles }) => {
   }, [articles]);
 
   return (
-    <div className="pt-4 pb-96 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5 overflow-y-auto h-screen">
+    <div className="pt-4 h-screen grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-4 lg:grid-cols-5 lg:gap-5">
       {analyzedArticles.map((article, index) => {
         const sentiment = article.sentiment ?? "neutral";
         const sentimentClass =

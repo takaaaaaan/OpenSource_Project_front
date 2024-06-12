@@ -1,4 +1,14 @@
 import Lottie from "react-lottie-player";
-import lottieJson from "../../public/lottie/default-animation.json";
+import Defaultanimation from "../../public/lottie/default-animation.json";
+import Animation02 from "../../public/lottie/Animation02.json";
+import React from 'react'
 
-<Lottie loop animationData={lottieJson} play />;
+<Lottie loop animationData={Animation02} play />;
+<Lottie loop animationData={Defaultanimation} play />;
+
+
+export default function lottieicon() {
+  return (
+    <div>lottieicon</div>
+  )
+}

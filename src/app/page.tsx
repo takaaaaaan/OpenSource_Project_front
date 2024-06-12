@@ -65,46 +65,46 @@ export default function Home() {
     {
       src: "/images/00.jpg",
       alt: "Image 2",
-      title: "For Teams",
-      description: "A superassistant for every member of your team",
+      title: "Lastest News",
+      description: "To be able to sum up the latest news",
       link: "https://example.com/learn-more",
     },
     {
-      src: "/images/01.jpg",
+      src: "/images/f-01.jpg",
       alt: "Image 2",
-      title: "For Teams",
-      description: "A superassistant for every member of your team",
+      title: "Sentiment analysis",
+      description: "To be able to watch the emotional analysis news",
       link: "https://example.com/learn-more",
     },
     {
-      src: "/images/02.jpg",
+      src: "/images/f-00.jpg",
       alt: "Image 3",
-      title: "For Enterprises",
-      description: "Empower your entire workforce with enterprise-grade AI",
+      title: "MAP",
+      description: "Find news on the map",
       link: "https://example.com/discover-more",
     },
     {
       src: "/images/03.jpg",
       alt: "Image 4",
-      title: "For Everyone",
-      description: "Explore limitless possibilities",
+      title: "TOP10",
+      description: "Watch the top 10 popular news today",
       link: "https://example.com/possibilities",
     },
     {
       src: "/images/04.jpg",
       alt: "Image 5",
-      title: "For Teams",
-      description: "Boost team productivity",
+      title: "Category",
+      description: "Choose a category to find news you're interested in",
       link: "https://example.com/productivity",
     },
     {
       src: "/images/05.jpg",
       alt: "Image 6",
-      title: "For Enterprises",
-      description: "Transform your operations",
+      title: "TTS",
+      description: "Read the news using TTS",
       link: "https://example.com/transform",
     },
-  ];
+  ];  
 
   return (
     <div className="h-full">

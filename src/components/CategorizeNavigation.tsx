@@ -12,7 +12,7 @@ const CategorizeNavigation: React.FC<{
         <button
           key={index}
           onClick={() => onSelect(category)}
-          className="px-4 py-2 bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 transition duration-200 ease-in-out"
+          className="px-6 py-3 bg-slate-50 text-black border border-blue-600 rounded-full shadow-lg hover:bg-slate-100 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-in-out"
         >
           {category}
         </button>

@@ -1,10 +1,25 @@
+"use client"
 import React from "react";
 import { NextPage } from "next";
 import { TopCard } from "@/components/NewsCard/TopCard";
+import Lottie from "react-lottie-player";
+import Animation02 from "../../../../public/lottie/Animation02.json";
 
 const RankingPage: NextPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
+      <div className="w-full flex flex-col items-center rounded-lg bg-white border border-cyan-800 shadow-md p-4 mt-4">
+        <div className="flex items-center mb-4">
+          <Lottie loop animationData={Animation02} play style={{ width: 100, height: 100 }} />
+          <div className="ml-4 text-center">
+            <h1 className="text-2xl font-bold">TOP10 뉴스 랭킹</h1>
+            <p>
+              Grow your data science skills by competing in our exciting competitions. Find help in
+              the documentation or learn about Community Competitions.
+            </p>
+          </div>
+        </div>
+      </div>
       <TopCard />
     </div>
   );
