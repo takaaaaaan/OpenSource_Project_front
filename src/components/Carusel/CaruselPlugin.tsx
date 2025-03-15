@@ -54,18 +54,6 @@ export function CarouselPlugin() {
                     objectFit="cover"
                     className="rounded-lg"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="text-center bg-white bg-opacity-75 p-4 rounded">
-                      <h1 className="text-3xl font-bold">Spring Update</h1>
-                      <p className="text-lg">
-                        Introducing GPT-4o and making more capabilities available for free in
-                        ChatGPT.
-                      </p>
-                      <button className="mt-2 px-4 py-2 bg-black text-white rounded">
-                        Learn more
-                      </button>
-                    </div>
-                  </div>
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -79,18 +67,13 @@ export function CarouselPlugin() {
                     objectFit="cover"
                     className="rounded-lg"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                  {/* <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <h1 className="text-3xl font-bold pb-3 text-zinc-50">Sentiment analysis Test</h1>
                     <div className="text-center bg-white bg-opacity-75 p-4 rounded">
-                      <h1 className="text-3xl font-bold">Spring Update</h1>
-                      <p className="text-lg">
-                        Introducing GPT-4o and making more capabilities available for free in
-                        ChatGPT.
-                      </p>
-                      <button className="mt-2 px-4 py-2 bg-black text-white rounded">
-                        Learn more
-                      </button>
+                      <h1 className="text-3xl font-bold pb-3">Sentiment analysis Test</h1>
+                      <Sentimentinput />
                     </div>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -104,7 +87,7 @@ export function CarouselPlugin() {
                     objectFit="cover"
                     className="rounded-lg"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                  {/* <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center bg-white bg-opacity-75 p-4 rounded">
                       <h1 className="text-3xl font-bold">Spring Update</h1>
                       <p className="text-lg">
@@ -115,7 +98,7 @@ export function CarouselPlugin() {
                         Learn more
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </CarouselItem>
